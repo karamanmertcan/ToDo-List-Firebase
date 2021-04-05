@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>ToDo List</title>
+  </head>
+  <body>
+    <div class="login_container" id="login_container">
+      <span class="signup_header">SignUp</span>
+      <div class="mail_form" id="mail_form">
+        <input id="email_form" type="text" placeholder="Mail" />
+        <input id="password_form" type="password" placeholder="Password" />
+        <input id="submit_button" type="submit" value="SignUp" class="btn" />
+      </div>
+      <span class="clickHere"
+        >If you have an account <a href="index.html">Click Here</a></span
+      >
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: 'AIzaSyDI4aA0Iq5AK_xhN2yguG0XxhSTSiK-xz8',
+        authDomain: 'todolist-32aa6.firebaseapp.com',
+        projectId: 'todolist-32aa6',
+        storageBucket: 'todolist-32aa6.appspot.com',
+        messagingSenderId: '448603195156',
+        appId: '1:448603195156:web:dc8cc3f00090bd11f6a401',
+        measurementId: 'G-BHPLRCE227',
+      }
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig)
+      firebase.analytics()
+
+      //make auth and firebase references
+      const auth = firebase.auth()
+      const db = firebase.firestore()
+
+      //update firestore settingsa
+      db.settings({ timestampsInSnapshots: true })
+
+      // SIGNUP
+      const email = document.getElementById('email_form')
+      const password = document.getElementById('password_form')
+      const submitBtn = document.getElementById('submit_button')
+
+      submitBtn.addEventListener('click', function () {
+        const emailVal = email.value
+        const passVal = password.value
+
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(emailVal, passVal)
+          .then((userCredential) => {
+            // Signed in
+            var user = userCredential.user
+            console.log(user)
+            // ...
+          })
+          .catch((error) => {
+            var errorCode = error.code
+            var errorMessage = error.message
+            // ..
+          })
+      })
+    </script>
+
+    <script type="module" src="/js/animation.js"></script>
+  </body>
+</html>

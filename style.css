@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    60deg,
+    hsl(224, 85%, 66%),
+    hsl(269, 85%, 66%),
+    hsl(314, 85%, 66%),
+    hsl(359, 85%, 66%),
+    hsl(44, 85%, 66%),
+    hsl(89, 85%, 66%),
+    hsl(134, 85%, 66%),
+    hsl(179, 85%, 66%)
+  );
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
+}
+.login_header {
+  font-family: Lobster, sans-serif;
+  font-size: 60px;
+}
+
+.signup_header {
+  font-family: Lobster, sans-serif;
+  font-size: 60px;
+}
+
+.login_container {
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  padding: 8rem 25rem;
+  margin-top: 20px;
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.mail_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login_container input {
+  margin: 10px auto;
+  height: 50px;
+  width: 250px;
+  border-radius: 10px;
+  outline-style: none;
+  text-align: center;
+  border: none;
+  transition: all 1s;
+  background: rgb(231, 231, 231);
+}
+
+.login_container input:focus {
+  border: 1px solid rgb(155, 155, 155);
+  box-shadow: 2px 2px 2px rgb(179, 179, 179);
+  width: 300px;
+  font-size: 90%;
+}
+
+.login_container input[type='submit'] {
+  width: 200px;
+  background: rgb(155, 155, 155);
+  color: white;
+  font-size: 80%;
+}
+
+.login_container input[type='submit']:hover {
+  width: 250px;
+  box-shadow: 2px 2px 2px rgb(179, 179, 179);
+  background: rgb(64, 64, 64);
+  font-size: 100%;
+}
+
+.clickHere {
+  display: flex;
+  flex-direction: column;
+  font-family: Lobster, sans-serif;
+}
+
+.clickHere a:visited {
+  color: blue;
+}
+
+.logout {
+  position: relative;
+  left: 40%;
+  opacity: 1;
+  transition: all 1s;
+}
+
+.logout input[type='submit'] {
+  width: 200px;
+  background: rgb(155, 155, 155);
+  color: white;
+  font-size: 80%;
+}
+
+.logout input[type='submit']:hover {
+  width: 250px;
+  box-shadow: 2px 2px 2px rgb(179, 179, 179);
+  background: rgb(64, 64, 64);
+  font-size: 100%;
+}
+
+.logout input {
+  margin: 10px auto;
+  height: 50px;
+  width: 250px;
+  border-radius: 10px;
+  outline-style: none;
+  text-align: center;
+  border: none;
+  transition: all 1s;
+  background: rgb(231, 231, 231);
+}
+
+.todo__input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.5s;
+}
+
+.addTask__button {
+  display: none;
+  margin: 10px auto;
+  height: 50px;
+  width: 250px;
+  border-radius: 10px;
+  outline-style: none;
+  text-align: center;
+  border: none;
+  transition: all 1s;
+  background: rgb(231, 231, 231);
+}
+
+input[type='submit']:hover {
+  width: 250px;
+  transform: scale(1.2);
+  box-shadow: 2px 2px 2px rgb(179, 179, 179);
+  background: rgb(64, 64, 64);
+  font-size: 100%;
+}
+
+.todo__header {
+  display: none;
+  font-family: Lobster, sans-serif;
+  font-size: 60px;
+  transition: all 0.5s;
+  transform: scale(1);
+  position: absolute;
+  top: -40px;
+  left: 250px;
+  transform: translate(-50%, -50%);
+}
+
+.todo__input--form {
+  display: none;
+  margin: 5px auto;
+  height: 50px;
+  width: 500px;
+  border-radius: 10px;
+  transition: all 0.5s;
+  outline-style: none;
+  text-align: center;
+  border: none;
+  transition: all 0.5s;
+  background: rgb(231, 231, 231);
+}
+
+.container {
+  display: none;
+  margin: 0 auto;
+  background: rgb(228, 228, 228);
+  width: 90vw;
+  transition: all 0.5s;
+}
+
+.task {
+  height: 100px;
+  width: 90vw;
+  background-color: white;
+  margin: 5px auto;
+}
+
+.task h2 {
+  display: block;
+  text-align: center;
+  margin: 10px auto;
+  font-family: Lobster, sans-serif;
+}
+
+.logout__button {
+  display: none;
+  margin: 10px auto;
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  outline-style: none;
+  text-align: center;
+  border: none;
+  transition: all 1s;
+  background: rgb(231, 231, 231);
+}
+
+.trash ion-icon {
+  display: inline-block;
+  color: black;
+  cursor: pointer;
+  transition: all 1s;
+}
+
+.trash ion-icon:hover {
+  color: rgb(206, 13, 13);
+  font-size: 120%;
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
